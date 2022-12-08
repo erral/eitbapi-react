@@ -1,10 +1,7 @@
 {
-  "About": "Honi buruz",
   "Home": "Hasiera",
-  "About page": "Honi buruz orrialdea",
-  "Home page": "Hasiera orrialdea",
-  "This is about page": "Hau honi buruz orrialdea da",
   "This is home page": "Hau hasiera orrialdea da",
   "Welcome to CS React Template": "Ongi etorri CS React Template-era",
-  "API REST request to Wikipedia": "API REST eskaera Wikipediara"
+  "Radios": "",
+  "home.title": ""
 }

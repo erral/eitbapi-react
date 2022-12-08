@@ -1,10 +1,7 @@
 {
-  "API REST request to Wikipedia": "API REST request to Wikipedia",
-  "About": "About",
-  "About page": "About page",
   "Home": "Home",
-  "Home page": "Home page",
-  "This is about page": "This is about page",
   "This is home page": "This is home page",
-  "Welcome to CS React Template": "Welcome to CS React Template"
+  "Welcome to CS React Template": "Welcome to CS React Template",
+  "Radios": "",
+  "home.title": ""
 }

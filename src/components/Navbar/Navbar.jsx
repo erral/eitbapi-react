@@ -13,7 +13,7 @@ const Navbar = () => {
     <BootstrapNavbar expand="lg">
       <Container>
         <BootstrapNavbar.Brand as={Link} to="/">
-          CS React Template
+          EITB Nahieran (alternatiboa)
         </BootstrapNavbar.Brand>
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
@@ -21,8 +21,8 @@ const Navbar = () => {
             <Nav.Link as={Link} to="/">
               <FormattedMessage id="Home" defaultMessage="Home" />
             </Nav.Link>
-            <Nav.Link as={Link} to={`${ROUTES?.ABOUT.paths[langCode]}`}>
-              <FormattedMessage id="About" defaultMessage="About" />
+            <Nav.Link as={Link} to={`${ROUTES?.RADIOS.paths[langCode]}`}>
+              <FormattedMessage id="Radios" defaultMessage="Radios" />
             </Nav.Link>
           </Nav>
           <Nav>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_PATH } from '../config/contants';
+import { API_PATH } from '../config/constants';
 const instance = axios.create({
   baseURL: API_PATH,
   headers: {
