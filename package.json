@@ -1,6 +1,12 @@
 {
-  "name": "cs-react-template",
-  "homepage": ".",
+  "name": "eitbapi-react",
+  "description": "EITB Nahieran alternatiboa",
+  "bugs": {
+    "url": "https://github.com/erral/eitbapi-react/issues"
+  },
+  "license": "MIT",
+  "author": "Mikel Larreategi",
+  "homepage": "https://erral.github.io/eitbapi-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
