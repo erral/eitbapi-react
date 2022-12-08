@@ -6,7 +6,6 @@
   },
   "license": "MIT",
   "author": "Mikel Larreategi",
-  "homepage": "https://erral.github.io/eitbapi-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
