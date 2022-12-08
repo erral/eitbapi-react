@@ -1,5 +1,18 @@
-# CS React Template
-https://codesyntax.gitlab.io/cs-react-template/
+# EITB Nahieran Alternatiboa
+
+[EITB Nahieran](https://eitb.tv) webgunearen itxura alternatiboa.
+
+Azkenaldian ikasitako JS eta React-ekin egina.
+
+Teorian hau [https://erral.github.io/eitbapi-react/](https://erral.github.io/eitbapi-react/) helbidean ikusi beharko litzateke, baina ez da ikusiko. GitHub Pages zerbitzuan ez dabil React-en defektuzko routerra eta beraz [HashRouter](https://reactrouter.com/en/main/router-components/hash-router) erabili beharko nuke. Baina ez dakit hori ganoraz konfiguratzen (lasai, eskatuko dut laguntza) eta errorea ematen dit; beraz dagoenean utziko dut.
+
+Momentuz `npm run start` eginda txukun dabil.
+
+## Eta APIa?
+
+Eh... bai, arrazoia duzu. Herokul doako kontuak desaktibatu dituenetik nire EITB Nahieran APIa ez dabil. Hori inbestigatzen jardun naiz, eta azkenean APIa egin beharrean web alternatiboa egin dut :P
+
+Bai, bai, saiatuko naiz APIa berriz martxan jartzen, edo JavaScripta erabiliz egiten, ea horrela GitHub pages edo antzeko lekuren baten jar dezakedan.
 
 # Getting Started with Create React App
 
@@ -72,16 +85,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
 # About autoprefixer: Replace color-adjust to print-color-adjust. The color-adjust shorthand is currently deprecated error.
 
 https://github.com/twbs/bootstrap/discussions/36286
 
 Hau konpontzeko, npm install autoprefixer@10.4.5 --save-exact instalatu da. baina etorkizunean bug hau bootstrapetik konpontzen dutenean kendu dezakegu.
 
-
 # Intl polyfill - EU pollyfills for unsupported browsers
+
 Error: [@formatjs/intl Error MISSING_DATA] Missing locale data for locale: "eu" in Intl.NumberFormat. Using default locale: "en" as fallback.
 
 Nabigatzaile batzuek ez dute euskarazko hizkuntzak onartzen. Horretarako euskarazko polyfills-ak eskuz instalatu behar ditugu.
-*MacOS-eko chromen behintzat ez du euskarazko euskarririk.
+\*MacOS-eko chromen behintzat ez du euskarazko euskarririk.
