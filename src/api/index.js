@@ -8,4 +8,4 @@ export {
   getRadioProgramSeasonChapter,
 } from './radios';
 
-export { getTVs } from './tvs';
+export { getTVs, getTVCategory } from './tvs';
