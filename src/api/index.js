@@ -7,3 +7,5 @@ export {
   getRadioProgramSeasonChapters,
   getRadioProgramSeasonChapter,
 } from './radios';
+
+export { getTVs } from './tvs';

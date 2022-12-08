@@ -24,6 +24,9 @@ const Navbar = () => {
             <Nav.Link as={Link} to={`${ROUTES?.RADIOS.paths[langCode]}`}>
               <FormattedMessage id="Radios" defaultMessage="Radios" />
             </Nav.Link>
+            <Nav.Link as={Link} to={`${ROUTES?.TVS.paths[langCode]}`}>
+              <FormattedMessage id="TVs" defaultMessage="TVs" />
+            </Nav.Link>
           </Nav>
           <Nav>
             <LanguageSelector />

@@ -5,10 +5,11 @@ import {
   RadioProgram,
   RadioProgramSeason,
   RadioProgramSeasonChapter,
+  TVs,
 } from '../pages';
 
 export const INDEX_COMPONENT = Home;
-const ROUTES = {
+export const ROUTES = {
   RADIOS: {
     paths: {
       en: 'radios',
@@ -49,6 +50,12 @@ const ROUTES = {
     },
     Component: RadioProgramSeasonChapter,
   },
+  TVS: {
+    paths: {
+      en: 'tvs',
+      eu: 'tvs',
+      es: 'tvs',
+    },
+    Component: TVs,
+  },
 };
-
-export default ROUTES;

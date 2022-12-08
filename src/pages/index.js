@@ -4,6 +4,7 @@ import Radio from './Radio';
 import RadioProgram from './RadioProgram';
 import RadioProgramSeason from './RadioProgramSeason';
 import RadioProgramSeasonChapter from './RadioProgramSeasonChapter';
+import TVs from './TVs';
 export {
   Home,
   Radio,
@@ -11,4 +12,5 @@ export {
   RadioProgram,
   RadioProgramSeason,
   RadioProgramSeasonChapter,
+  TVs,
 };

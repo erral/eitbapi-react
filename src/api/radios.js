@@ -1,4 +1,4 @@
-import api from './api';
+import { radioapi as api } from './api';
 import {
   RADIO_PROGRAMS,
   RADIO_PROGRAM,
