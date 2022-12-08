@@ -7,5 +7,7 @@
   "home.welcome": "Kaixo! EITB Nahieran alternatiboa da hau. Azkenaldian ikasitako JS eta React apurrarekin egindakoa",
   "radio.Programs": "Programak",
   "radioprogram.Seasons": "Denboraldiak",
-  "radioprogramseason.Chapters": "Saioak"
+  "radioprogramseason.Chapters": "Saioak",
+  "TVs": "",
+  "tvs.Category": ""
 }
