@@ -8,6 +8,10 @@
   "radio.Programs": "Programak",
   "radioprogram.Seasons": "Denboraldiak",
   "radioprogramseason.Chapters": "Saioak",
-  "TVs": "",
-  "tvs.Category": ""
+  "TVs": "Telebista",
+  "chapter.download": "Deskargatu",
+  "playlist.Chapter": "Atalak",
+  "tvs.Categories": "Kategoriak",
+  "tvs.Playlists": "Zerrendak",
+  "tvs.Programs": "Programak"
 }

@@ -31,6 +31,9 @@ export const TVCategoryProgramPlaylist = () => {
         <Container>
           <h1>{data.name}</h1>
           <p>{data.desc_group}</p>
+          <h2>
+            <FormattedMessage id="playlist.Chapter" defaultMessage="Chapter" />
+          </h2>
           <ul>
             {sort_by_key(data.web_media, data.orden_field, data.orden_type).map(
               (item, index) => {

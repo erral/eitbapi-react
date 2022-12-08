@@ -9,5 +9,9 @@
   "radioprogram.Seasons": "Denboraldiak",
   "radioprogramseason.Chapters": "Saioak",
   "TVs": "",
-  "tvs.Category": ""
+  "chapter.download": "",
+  "playlist.Chapter": "",
+  "tvs.Categories": "",
+  "tvs.Playlists": "",
+  "tvs.Programs": ""
 }

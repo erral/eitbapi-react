@@ -23,7 +23,7 @@ export const TVs = () => {
       {loaded ? (
         <>
           <h1>
-            <FormattedMessage id="tvs.Category" defaultMessage="Categories" />
+            <FormattedMessage id="tvs.Categories" defaultMessage="Categories" />
           </h1>
           <ul>
             {sort_by_key(data.web_clasif, `CLASIFICACION_${LANGUAGE}`).map(

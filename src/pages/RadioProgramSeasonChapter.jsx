@@ -9,6 +9,7 @@ import Container from 'react-bootstrap/Container';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import Figure from 'react-bootstrap/Figure';
+import { FormattedMessage } from 'react-intl';
 
 export const RadioProgramSeasonChapter = () => {
   const { id, program_id, season_id, chapter_id } = useParams();
@@ -45,7 +46,10 @@ export const RadioProgramSeasonChapter = () => {
           </p>
           <p>
             <a href={data.audio} download>
-              Download
+              <FormattedMessage
+                id="chapter.download"
+                defaultMessage="Download"
+              />
             </a>
           </p>
         </>

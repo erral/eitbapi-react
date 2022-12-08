@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
 import { getTVCategoryProgram } from '../api';
-import { getTVCategoryProgramChapters } from '../api';
 import { sort_by_key } from '../helpers/utils';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
@@ -27,6 +26,13 @@ export const TVCategoryProgram = () => {
             return (
               <Container key={index}>
                 <h1>{item.NOMBRE_GROUP}</h1>
+                <h2>
+                  <FormattedMessage
+                    id="tvs.Playlists"
+                    defaultMessage="Playlists"
+                  />
+                </h2>
+
                 <ul>
                   {sort_by_key(item.web_playlist, 'ORDEN').map(
                     (program_item, program_index) => {

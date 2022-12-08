@@ -23,7 +23,7 @@ export const TVCategory = () => {
       {loaded ? (
         <>
           <h1>
-            <FormattedMessage id="tvs.Category" defaultMessage="Categories" />
+            <FormattedMessage id="tvs.Programs" defaultMessage="Programs" />
           </h1>
           <ul>
             {sort_by_key(data.web_group, `NOMBRE_GROUP`).map((item, index) => {

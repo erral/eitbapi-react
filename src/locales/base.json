@@ -2,12 +2,16 @@
   "Home": "Home",
   "Radios": "Radios",
   "TVs": "TVs",
+  "chapter.download": "Download",
   "home.APIComingSoon": "Laster APIa zuen eskura!",
   "home.title": "EITB Nahieran alternatiboa",
   "home.useMenu": "Erabili goiko menua irrati zein telebista programak ikusi eta bilatzeko",
   "home.welcome": "Kaixo EITB Nahieran alternatiboa da hau. Azkenaldian ikasi dudan JS eta React apurrarekin egindakoa.",
+  "playlist.Chapter": "Chapter",
   "radio.Programs": "Programs",
   "radioprogram.Seasons": "Seasons",
   "radioprogramseason.Chapters": "Chapters",
-  "tvs.Category": "Categories"
+  "tvs.Categories": "Categories",
+  "tvs.Playlists": "Playlists",
+  "tvs.Programs": "Programs"
 }
