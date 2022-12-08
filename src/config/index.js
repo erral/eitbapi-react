@@ -1,5 +1,5 @@
 import { AVAILABLE_LANGUAGES, DEFAULT_LANGUAGE } from './language';
-import { DB_KEYS, DOMAIN_PATH } from './contants';
+import { DB_KEYS, DOMAIN_PATH } from './constants';
 import ROUTES, { INDEX_COMPONENT } from './routes';
 
 export {
