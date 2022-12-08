@@ -5,12 +5,13 @@ import React, { useEffect } from 'react';
 import { sort_by_key } from '../helpers/utils';
 import { FormattedMessage } from 'react-intl';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { useSelector } from 'react-redux';
 
 const Radio = () => {
   const { id } = useParams();
 
   const { triggerFunction, data, loaded } = useAsync();
-  const language = 'en';
+  const { langCode: language } = useSelector((state) => state.language);
 
   useEffect(() => {
     triggerFunction(getRadioPrograms, id);

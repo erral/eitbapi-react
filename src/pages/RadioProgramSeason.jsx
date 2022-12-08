@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+
 import { getRadioProgramSeason, getRadioProgramSeasonChapters } from '../api';
 import { useAsync } from '../hooks';
 import { useParams } from 'react-router';
@@ -17,7 +19,7 @@ const RadioProgram = () => {
     loaded: loadedChapters,
   } = useAsync();
 
-  const language = 'en';
+  const { langCode: language } = useSelector((state) => state.language);
 
   useEffect(() => {
     triggerFunction(getRadioProgramSeason, id, program_id, season_id);

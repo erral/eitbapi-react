@@ -5,9 +5,11 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
 import { getTVs } from '../api';
 import { sort_by_key } from '../helpers/utils';
+import { useSelector } from 'react-redux';
 
 const TVs = () => {
-  const language = 'en';
+  const { langCode: language } = useSelector((state) => state.language);
+
   const LANGUAGE = language.toUpperCase();
 
   const { triggerFunction, data, loaded } = useAsync();

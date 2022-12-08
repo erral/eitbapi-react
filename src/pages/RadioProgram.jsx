@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
+import { useSelector } from 'react-redux';
 
 import Figure from 'react-bootstrap/Figure';
 const RadioProgram = () => {
@@ -17,7 +18,7 @@ const RadioProgram = () => {
     loaded: loadedSeasons,
   } = useAsync();
 
-  const language = 'en';
+  const { langCode: language } = useSelector((state) => state.language);
 
   useEffect(() => {
     triggerFunction(getRadioProgram, id, program_id);

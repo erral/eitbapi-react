@@ -1,8 +1,10 @@
 import React from 'react';
 import { getRadios } from '../api';
+import { useSelector } from 'react-redux';
 
 const Radios = () => {
-  const language = 'en';
+  const { langCode: language } = useSelector((state) => state.language);
+
   const radios = getRadios();
   return (
     <div>
