@@ -1,11 +1,11 @@
 export { Home } from './Home';
-export { Radios } from './Radios';
 export { Radio } from './Radio';
 export { RadioProgram } from './RadioProgram';
 export { RadioProgramSeason } from './RadioProgramSeason';
 export { RadioProgramSeasonChapter } from './RadioProgramSeasonChapter';
-export { TVs } from './TVs';
+export { Radios } from './Radios';
 export { TVCategory } from './TVCategory';
 export { TVCategoryProgram } from './TVCategoryProgram';
 export { TVCategoryProgramPlaylist } from './TVCategoryProgramPlaylist';
 export { TVCategoryProgramPlaylistChapter } from './TVCategoryProgramPlaylistChapter';
+export { TVs } from './TVs';

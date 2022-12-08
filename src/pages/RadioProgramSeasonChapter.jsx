@@ -1,6 +1,4 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import { useSelector } from 'react-redux';
-
 import { getRadioProgramSeasonChapter } from '../api';
 import { useAsync } from '../hooks';
 import { useParams } from 'react-router';

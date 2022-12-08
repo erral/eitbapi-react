@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
-import { getTVCategoryProgram } from '../api';
 import { getTVCategoryProgramPlaylist } from '../api';
 import { sort_by_key } from '../helpers/utils';
 import { useSelector } from 'react-redux';
