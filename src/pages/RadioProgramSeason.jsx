@@ -9,7 +9,8 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
 
 import Figure from 'react-bootstrap/Figure';
-const RadioProgram = () => {
+
+export const RadioProgramSeason = () => {
   const { id, program_id, season_id } = useParams();
 
   const { triggerFunction, data, loaded } = useAsync();
@@ -84,5 +85,3 @@ const RadioProgram = () => {
     </Container>
   );
 };
-
-export default RadioProgram;

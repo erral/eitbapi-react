@@ -8,7 +8,8 @@ import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 
 import Figure from 'react-bootstrap/Figure';
-const RadioProgram = () => {
+
+export const RadioProgram = () => {
   const { id, program_id } = useParams();
 
   const { triggerFunction, data, loaded } = useAsync();
@@ -77,5 +78,3 @@ const RadioProgram = () => {
     </Container>
   );
 };
-
-export default RadioProgram;

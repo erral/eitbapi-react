@@ -9,7 +9,8 @@ import Container from 'react-bootstrap/Container';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import Figure from 'react-bootstrap/Figure';
-const RadioProgram = () => {
+
+export const RadioProgramSeasonChapter = () => {
   const { id, program_id, season_id, chapter_id } = useParams();
 
   const { triggerFunction, data, loaded } = useAsync();
@@ -54,5 +55,3 @@ const RadioProgram = () => {
     </Container>
   );
 };
-
-export default RadioProgram;

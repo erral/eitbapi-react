@@ -7,7 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { useSelector } from 'react-redux';
 
-const Radio = () => {
+export const Radio = () => {
   const { id } = useParams();
 
   const { triggerFunction, data, loaded } = useAsync();
@@ -36,5 +36,3 @@ const Radio = () => {
     <ClipLoader />
   );
 };
-
-export default Radio;

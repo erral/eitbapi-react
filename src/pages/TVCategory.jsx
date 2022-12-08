@@ -7,7 +7,7 @@ import { getTVs } from '../api';
 import { sort_by_key } from '../helpers/utils';
 import { useSelector } from 'react-redux';
 
-export const TVs = () => {
+export const TVCategory = () => {
   const { langCode: language } = useSelector((state) => state.language);
 
   const LANGUAGE = language.toUpperCase();

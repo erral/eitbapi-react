@@ -6,6 +6,7 @@ import {
   RadioProgramSeason,
   RadioProgramSeasonChapter,
   TVs,
+  TVCategory,
 } from '../pages';
 
 export const INDEX_COMPONENT = Home;
@@ -57,5 +58,13 @@ export const ROUTES = {
       es: 'tvs',
     },
     Component: TVs,
+  },
+  TV_CATEGORY: {
+    paths: {
+      en: 'tvs/:category_id',
+      eu: 'tvs/:category_id',
+      es: 'tvs/:category_id',
+    },
+    Component: TVCategory,
   },
 };

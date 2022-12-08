@@ -2,7 +2,7 @@ import React from 'react';
 import { getRadios } from '../api';
 import { useSelector } from 'react-redux';
 
-const Radios = () => {
+export const Radios = () => {
   const { langCode: language } = useSelector((state) => state.language);
 
   const radios = getRadios();
@@ -20,5 +20,3 @@ const Radios = () => {
     </div>
   );
 };
-
-export default Radios;
