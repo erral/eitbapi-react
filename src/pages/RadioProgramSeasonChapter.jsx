@@ -10,9 +10,7 @@ import Figure from 'react-bootstrap/Figure';
 const RadioProgram = () => {
   const { id, program_id, season_id, chapter_id } = useParams();
 
-  const { triggerFunction, data, loading, loaded } = useAsync();
-
-  const language = 'en';
+  const { triggerFunction, data, loaded } = useAsync();
 
   useEffect(() => {
     triggerFunction(
@@ -22,7 +20,7 @@ const RadioProgram = () => {
       season_id,
       chapter_id,
     );
-  }, [getRadioProgramSeasonChapter, id, program_id, season_id, chapter_id]);
+  }, [id, program_id, season_id, chapter_id, triggerFunction]);
 
   return (
     <Container>

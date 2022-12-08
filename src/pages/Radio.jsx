@@ -9,12 +9,12 @@ import ClipLoader from 'react-spinners/ClipLoader';
 const Radio = () => {
   const { id } = useParams();
 
-  const { triggerFunction, data, loading, loaded } = useAsync();
+  const { triggerFunction, data, loaded } = useAsync();
   const language = 'en';
 
   useEffect(() => {
     triggerFunction(getRadioPrograms, id);
-  }, [getRadioPrograms]);
+  }, [id, triggerFunction]);
 
   return loaded ? (
     <>
@@ -24,7 +24,7 @@ const Radio = () => {
       <ul>
         {sort_by_key(data, 'title').map((item, index) => {
           return (
-            <li>
+            <li key={index}>
               <a href={`/${language}/radios/${id}/${item.id}`}>{item.title}</a>
             </li>
           );

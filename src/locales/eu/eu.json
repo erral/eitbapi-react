@@ -1,7 +1,11 @@
 {
   "Home": "Hasiera",
-  "This is home page": "Hau hasiera orrialdea da",
-  "Welcome to CS React Template": "Ongi etorri CS React Template-era",
-  "Radios": "",
-  "home.title": ""
+  "Radios": "Irratiak",
+  "home.title": "EITB Nahieran Alternatiboa",
+  "home.APIComingSoon": "Laster APIa zuen eskura!",
+  "home.useMenu": "Erabili goiko menua irrati zein telebista programak bilatu eta ikusteko",
+  "home.welcome": "Kaixo! EITB Nahieran alternatiboa da hau. Azkenaldian ikasitako JS eta React apurrarekin egindakoa",
+  "radio.Programs": "Programak",
+  "radioprogram.Seasons": "Denboraldiak",
+  "radioprogramseason.Chapters": "Saioak"
 }
