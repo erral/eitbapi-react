@@ -13,5 +13,5 @@ export {
   getTVCategory,
   getTVCategoryProgram,
   getTVCategoryProgramPlaylist,
-  getTVCategoryProgramPlaylistChapters,
+  getTVCategoryProgramPlaylistChapter,
 } from './tvs';

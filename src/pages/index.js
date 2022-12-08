@@ -7,5 +7,5 @@ export { RadioProgramSeasonChapter } from './RadioProgramSeasonChapter';
 export { TVs } from './TVs';
 export { TVCategory } from './TVCategory';
 export { TVCategoryProgram } from './TVCategoryProgram';
-export { TVCategoryProgramChapter } from './TVCategoryProgramChapter';
 export { TVCategoryProgramPlaylist } from './TVCategoryProgramPlaylist';
+export { TVCategoryProgramPlaylistChapter } from './TVCategoryProgramPlaylistChapter';

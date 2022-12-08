@@ -9,7 +9,7 @@ import {
   TVCategory,
   TVCategoryProgram,
   TVCategoryProgramPlaylist,
-  TVCategoryProgramChapter,
+  TVCategoryProgramPlaylistChapter,
 } from '../pages';
 
 export const INDEX_COMPONENT = Home;
@@ -85,5 +85,13 @@ export const ROUTES = {
       es: 'tvs/:category_id/:program_id/:playlist_id',
     },
     Component: TVCategoryProgramPlaylist,
+  },
+  TV_CATEGORY_PROGRAM_PLAYLIST_CHAPTER: {
+    paths: {
+      en: 'tvs/:category_id/:program_id/:playlist_id/:chapter_id',
+      eu: 'tvs/:category_id/:program_id/:playlist_id/:chapter_id',
+      es: 'tvs/:category_id/:program_id/:playlist_id/:chapter_id',
+    },
+    Component: TVCategoryProgramPlaylistChapter,
   },
 };

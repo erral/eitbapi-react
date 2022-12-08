@@ -4,8 +4,8 @@ import {
   TV_API_CATEGORIES,
   TV_API_CATEGORY,
   TV_API_CATEGORY_PROGRAM,
-  TV_API_CATEGORY_PROGRAM_CHAPTERS,
   TV_API_CATEGORY_PROGRAM_PLAYLIST,
+  TV_API_CATEGORY_PROGRAM_PLAYLIST_CHAPTER,
 } from '../config';
 
 export const getTVs = () => {
@@ -28,10 +28,13 @@ export const getTVCategoryProgramPlaylist = (
   return tvapi.get(`${TV_API_CATEGORY_PROGRAM_PLAYLIST}/${playlist_id}/`);
 };
 
-export const getTVCategoryProgramPlaylistChapters = (
+export const getTVCategoryProgramPlaylistChapter = (
   category_id,
   program_id,
   playlist_id,
+  chapter_id,
 ) => {
-  return tvapi.get(`${TV_API_CATEGORY_PROGRAM_PLAYLIST}/${playlist_id}/`);
+  return tvapi.get(
+    `${TV_API_CATEGORY_PROGRAM_PLAYLIST_CHAPTER}/${chapter_id}/`,
+  );
 };
