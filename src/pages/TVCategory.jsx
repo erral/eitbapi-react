@@ -12,8 +12,6 @@ export const TVCategory = () => {
   const { langCode: language } = useSelector((state) => state.language);
   const { category_id } = useParams();
 
-  const LANGUAGE = language.toUpperCase();
-
   const { triggerFunction, data, loaded } = useAsync();
 
   useEffect(() => {

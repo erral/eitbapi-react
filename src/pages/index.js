@@ -6,3 +6,4 @@ export { RadioProgramSeason } from './RadioProgramSeason';
 export { RadioProgramSeasonChapter } from './RadioProgramSeasonChapter';
 export { TVs } from './TVs';
 export { TVCategory } from './TVCategory';
+export { TVCategoryProgram } from './TVCategoryProgram';
