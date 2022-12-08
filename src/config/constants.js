@@ -23,3 +23,5 @@ export const TV_API_CATEGORIES = '/WebClasif/MULTIWEBTV/8/1/0/';
 export const TV_API_CATEGORY = '/Grouplist/Clasification/MULTIWEBTV/8';
 
 export const TV_API_CATEGORY_PROGRAM = '/Grouplist/ByGroup/MULTIWEBTV/8';
+export const TV_API_CATEGORY_PROGRAM_PLAYLIST = '/Playlist2/MULTIWEBTV';
+export const TV_API_CATEGORY_PROGRAM_CHAPTERS = '/Playlist2/MULTIWEBTV';
