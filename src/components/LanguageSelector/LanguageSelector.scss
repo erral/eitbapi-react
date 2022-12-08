@@ -1,0 +1,4 @@
+@import "../../theme/variables.scss";
+.selected {
+  background-color: map-get($theme-colors, primary);
+}

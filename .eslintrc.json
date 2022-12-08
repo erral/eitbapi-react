@@ -1,0 +1,67 @@
+{
+  "extends": [
+    "react-app",
+    "prettier",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": [
+    "jsx-a11y",
+    "prettier"
+  ],
+  "rules": {
+    "import/no-unresolved": 1,
+    "no-alert": 1,
+    "no-console": 1,
+    "no-debugger": 1,
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "all",
+        "singleQuote": true
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/react-in-jsx-scope": "off",
+    "import/no-anonymous-default-export": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node":{
+        "moduleDirectory": ["node_modules", "src/"],
+        "paths": [
+          "src"
+        ],
+        "extensions": [".js", ".jsx", ".json"]
+      },
+      "alias": {
+        "map": [
+          [
+            "./src"
+          ]
+        ],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".json"
+        ]
+      }
+    }
+  },
+  "globals": {
+    "root": true,
+    "__DEVELOPMENT__": true,
+    "__CLIENT__": true,
+    "__SERVER__": true,
+    "__DISABLE_SSR__": true,
+    "__DEVTOOLS__": true,
+    "__DEBUG__": true,
+    "__SSR__": true,
+    "__SENTRY__": true,
+    "cy": true,
+    "Cypress": true,
+    "jest": true,
+    "socket": true,
+    "webpackIsomorphicTools": true
+  }
+}
