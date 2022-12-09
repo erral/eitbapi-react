@@ -30,9 +30,13 @@ export const TVs = () => {
               (item, index) => {
                 return (
                   <li key={index}>
+
                     <a href={`/eitbapi-react/#/${language}/tvs/${item.CLASIFICACION}`}>
+
                       {item[`CLASIFICACION_${LANGUAGE.toUpperCase()}`]}
+
                     </a>
+                    
                   </li>
                 );
               },
