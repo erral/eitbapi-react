@@ -12,7 +12,7 @@ export const Radios = () => {
         {radios.map((item, index) => {
           return (
             <li key={index}>
-              <a href={`/${language}/radios/${item}`}>{item}</a>
+              <a href={`/eitbapi-react/#/${language}/radios/${item}`}>{item}</a>
             </li>
           );
         })}

@@ -30,7 +30,7 @@ export const TVCategory = () => {
               return (
                 <li key={index}>
                   <a
-                    href={`/${language}/tvs/${category_id}/${item.ID_WEB_GROUP}`}
+                    href={`/eitbapi-react/#/${language}/tvs/${category_id}/${item.ID_WEB_GROUP}`}
                   >
                     {item[`NOMBRE_GROUP`]}
                   </a>

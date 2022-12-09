@@ -69,7 +69,7 @@ export const RadioProgramSeason = () => {
                 return (
                   <li key={index}>
                     <a
-                      href={`/${language}/radios/${id}/${program_id}/${season_id}/${item.id}`}
+                      href={`/eitbapi-react/#/${language}/radios/${id}/${program_id}/${season_id}/${item.id}`}
                     >
                       {item.title}
                     </a>
