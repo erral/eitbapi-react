@@ -26,7 +26,9 @@ export const Radio = () => {
         {sort_by_key(data, 'title').map((item, index) => {
           return (
             <li key={index}>
-              <a href={`/${language}/radios/${id}/${item.id}`}>{item.title}</a>
+              <a href={`/eitbapi-react/#/${language}/radios/${id}/${item.id}`}>
+                {item.title}
+              </a>
             </li>
           );
         })}
