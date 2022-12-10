@@ -5,7 +5,6 @@ import Figure from 'react-bootstrap/Figure';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { getTVCategoryProgramPlaylistChapter } from '../api';
 import { useAsync } from '../hooks';
@@ -57,12 +56,12 @@ export const TVCategoryProgramPlaylistChapter = () => {
                           <source src={video_item.PMD_URL} />
                         </video>
                         <br />
-                        <Link to={video_item.PMD_URL} download>
+                        <a href={video_item.PMD_URL} download={true}>
                           <FormattedMessage
                             id="chapter.download"
                             defaultMessage="Download"
                           />
-                        </Link>
+                        </a>
                       </Container>
                     );
                   })}

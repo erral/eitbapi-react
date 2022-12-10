@@ -44,12 +44,12 @@ export const RadioProgramSeasonChapter = () => {
             <audio controls src={data.audio} />
           </p>
           <p>
-            <Link to={data.audio} download>
+            <a href={data.audio} download={true}>
               <FormattedMessage
                 id="chapter.download"
                 defaultMessage="Download"
               />
-            </Link>
+            </a>
           </p>
         </>
       ) : (
