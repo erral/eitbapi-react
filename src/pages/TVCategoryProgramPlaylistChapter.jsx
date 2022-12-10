@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import { useAsync } from '../hooks';
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import ClipLoader from 'react-spinners/ClipLoader';
-import { getTVCategoryProgramPlaylistChapter } from '../api';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router';
 import Figure from 'react-bootstrap/Figure';
 import { FormattedMessage } from 'react-intl';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { getTVCategoryProgramPlaylistChapter } from '../api';
+import { useAsync } from '../hooks';
 
 export const TVCategoryProgramPlaylistChapter = () => {
   const { category_id, program_id, playlist_id, chapter_id } = useParams();
@@ -56,12 +57,12 @@ export const TVCategoryProgramPlaylistChapter = () => {
                           <source src={video_item.PMD_URL} />
                         </video>
                         <br />
-                        <a href={video_item.PMD_URL} download>
+                        <Link to={video_item.PMD_URL} download>
                           <FormattedMessage
                             id="chapter.download"
                             defaultMessage="Download"
                           />
-                        </a>
+                        </Link>
                       </Container>
                     );
                   })}

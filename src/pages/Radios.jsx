@@ -1,6 +1,7 @@
 import React from 'react';
 import { getRadios } from '../api';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export const Radios = () => {
   const { langCode: language } = useSelector((state) => state.language);
@@ -12,7 +13,7 @@ export const Radios = () => {
         {radios.map((item, index) => {
           return (
             <li key={index}>
-              <a href={`/${language}/radios/${item}`}>{item}</a>
+              <Link to={`/${language}/radios/${item}`}>{item}</Link>
             </li>
           );
         })}

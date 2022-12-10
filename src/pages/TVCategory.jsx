@@ -7,6 +7,7 @@ import { getTVCategory } from '../api';
 import { sort_by_key } from '../helpers/utils';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export const TVCategory = () => {
   const { langCode: language } = useSelector((state) => state.language);
@@ -29,11 +30,11 @@ export const TVCategory = () => {
             {sort_by_key(data.web_group, `NOMBRE_GROUP`).map((item, index) => {
               return (
                 <li key={index}>
-                  <a
-                    href={`/${language}/tvs/${category_id}/${item.ID_WEB_GROUP}`}
+                  <Link
+                    to={`/${language}/tvs/${category_id}/${item.ID_WEB_GROUP}`}
                   >
                     {item[`NOMBRE_GROUP`]}
-                  </a>
+                  </Link>
                 </li>
               );
             })}

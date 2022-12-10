@@ -8,6 +8,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 
 import Figure from 'react-bootstrap/Figure';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 
 export const RadioProgramSeasonChapter = () => {
   const { id, program_id, season_id, chapter_id } = useParams();
@@ -43,12 +44,12 @@ export const RadioProgramSeasonChapter = () => {
             <audio controls src={data.audio} />
           </p>
           <p>
-            <a href={data.audio} download>
+            <Link to={data.audio} download>
               <FormattedMessage
                 id="chapter.download"
                 defaultMessage="Download"
               />
-            </a>
+            </Link>
           </p>
         </>
       ) : (

@@ -7,6 +7,7 @@ import { getTVCategoryProgramPlaylist } from '../api';
 import { sort_by_key } from '../helpers/utils';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export const TVCategoryProgramPlaylist = () => {
   const { langCode: language } = useSelector((state) => state.language);
@@ -38,11 +39,11 @@ export const TVCategoryProgramPlaylist = () => {
               (item, index) => {
                 return (
                   <li key={index}>
-                    <a
-                      href={`/${language}/tvs/${category_id}/${program_id}/${playlist_id}/${item.ID}`}
+                    <Link
+                      to={`/${language}/tvs/${category_id}/${program_id}/${playlist_id}/${item.ID}`}
                     >
                       {item[`NAME_${LANGUAGE}`]}
-                    </a>
+                    </Link>
                   </li>
                 );
               },

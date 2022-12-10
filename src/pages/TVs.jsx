@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { getTVs } from '../api';
 import { sort_by_key } from '../helpers/utils';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export const TVs = () => {
   const { langCode: language } = useSelector((state) => state.language);
@@ -30,9 +31,9 @@ export const TVs = () => {
               (item, index) => {
                 return (
                   <li key={index}>
-                    <a href={`/${language}/tvs/${item.CLASIFICACION}`}>
+                    <Link to={`/${language}/tvs/${item.CLASIFICACION}`}>
                       {item[`CLASIFICACION_${LANGUAGE.toUpperCase()}`]}
-                    </a>
+                    </Link>
                   </li>
                 );
               },

@@ -9,6 +9,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
 
 import Figure from 'react-bootstrap/Figure';
+import { Link } from 'react-router-dom';
 
 export const RadioProgramSeason = () => {
   const { id, program_id, season_id } = useParams();
@@ -68,11 +69,11 @@ export const RadioProgramSeason = () => {
               {dataChapters.map((item, index) => {
                 return (
                   <li key={index}>
-                    <a
-                      href={`/${language}/radios/${id}/${program_id}/${season_id}/${item.id}`}
+                    <Link
+                      to={`/${language}/radios/${id}/${program_id}/${season_id}/${item.id}`}
                     >
                       {item.title}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}

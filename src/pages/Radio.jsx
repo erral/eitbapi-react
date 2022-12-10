@@ -6,6 +6,7 @@ import { sort_by_key } from '../helpers/utils';
 import { FormattedMessage } from 'react-intl';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export const Radio = () => {
   const { id } = useParams();
@@ -26,7 +27,9 @@ export const Radio = () => {
         {sort_by_key(data, 'title').map((item, index) => {
           return (
             <li key={index}>
-              <a href={`/${language}/radios/${id}/${item.id}`}>{item.title}</a>
+              <Link to={`/${language}/radios/${id}/${item.id}`}>
+                {item.title}
+              </Link>
             </li>
           );
         })}

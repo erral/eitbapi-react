@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Figure from 'react-bootstrap/Figure';
 
@@ -61,11 +62,11 @@ export const RadioProgram = () => {
               {dataSeasons.map((item, index) => {
                 return (
                   <li key={index}>
-                    <a
-                      href={`/${language}/radios/${id}/${program_id}/${item.id}`}
+                    <Link
+                      to={`/${language}/radios/${id}/${program_id}/${item.id}`}
                     >
                       {item.title} ({item.presenter})
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
