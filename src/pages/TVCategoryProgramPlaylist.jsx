@@ -1,13 +1,13 @@
-import { useAsync } from '../hooks';
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
-import { getTVCategoryProgramPlaylist } from '../api';
-import { sort_by_key } from '../helpers/utils';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { getTVCategoryProgramPlaylist } from '../api';
+import { sort_by_key } from '../helpers/utils';
+import { useAsync } from '../hooks';
 
 export const TVCategoryProgramPlaylist = () => {
   const { langCode: language } = useSelector((state) => state.language);
