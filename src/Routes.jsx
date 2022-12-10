@@ -8,13 +8,18 @@ const AppRoutes = () => {
   const { langCode } = useSelector((state) => state.language);
   return (
     <Routes>
-      <Route index element={<Navigate to={'/' + langCode} />}></Route>
-      <Route path="/:lang" element={<App />}>
-        <Route index element={<INDEX_COMPONENT />} />
+      <Route path="/" element={<Navigate to={'/' + langCode} />}></Route>
+      <Route path="/:lang" element={<App />} basename="/eitbapi-react">
+        <Route index element={<INDEX_COMPONENT />} basename="/eitbapi-react" />
         {Object.values(ROUTES).map((route) => {
           return Object.values(route.paths).map((path, key) => {
             return (
-              <Route key={key} path={path} element={<route.Component />} />
+              <Route
+                key={key}
+                path={path}
+                element={<route.Component />}
+                basename="/eitbapi-react"
+              />
             );
           });
         })}

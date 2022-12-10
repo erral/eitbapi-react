@@ -8,6 +8,7 @@
   "author": "Mikel Larreategi",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://erral.github.io/eitbapi-react",
   "dependencies": {
     "@formatjs/intl-datetimeformat": "^6.0.3",
     "@formatjs/intl-numberformat": "^8.0.4",
