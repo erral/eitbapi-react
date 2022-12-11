@@ -72,13 +72,17 @@ export const TVCategory = () => {
             {sort_by_key(data.program, 'title').map(
               (program, program_index) => {
                 return (
-                  <ListGroup.Item>
+                  <ListGroup.Item key={program_index}>
+                    {program.title} &nbsp;
                     <Button
+                      className="ml-5"
+                      variant="outline-primary"
+                      size="sm"
                       onClick={() => toggleItem(program_index)}
                       aria-controls={`collapse-item-${program_index}`}
                       aria-expanded={Boolean(open[program_index])}
                     >
-                      {program.title}
+                      +
                     </Button>
                     <Collapse in={Boolean(open[program_index])}>
                       <div id={`collapse-item-${program_index}`}>

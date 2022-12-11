@@ -1,9 +1,11 @@
+import Container from 'react-bootstrap/Container';
 import { getRadios } from '../api';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useAsync } from '../hooks';
 import React, { useEffect } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { FormattedMessage } from 'react-intl';
 
 export const Radios = () => {
   const { langCode: language } = useSelector((state) => state.language);
@@ -14,7 +16,10 @@ export const Radios = () => {
   }, [triggerFunction]);
 
   return (
-    <div>
+    <Container>
+      <h1>
+        <FormattedMessage id="radio.Radios" defaultMessage="Radios" />
+      </h1>
       {loaded ? (
         <ul>
           {data?.radios?.map((item, index) => {
@@ -28,6 +33,6 @@ export const Radios = () => {
       ) : (
         <ClipLoader />
       )}
-    </div>
+    </Container>
   );
 };
