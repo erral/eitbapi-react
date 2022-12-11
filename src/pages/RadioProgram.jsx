@@ -1,4 +1,4 @@
-import { getRadioProgram, getRadioProgramSeasons } from '../api';
+import { getRadioProgramData, getRadioProgramSeasons } from '../api';
 import { useAsync } from '../hooks';
 import { useParams } from 'react-router';
 import React, { useEffect } from 'react';
@@ -23,27 +23,27 @@ export const RadioProgram = () => {
   const { langCode: language } = useSelector((state) => state.language);
 
   useEffect(() => {
-    triggerFunction(getRadioProgram, id, program_id);
-  }, [id, program_id, triggerFunction]);
+    triggerFunction(getRadioProgramData, program_id);
+  }, [program_id, triggerFunction]);
 
   useEffect(() => {
-    triggerFunctionSeasons(getRadioProgramSeasons, id, program_id);
-  }, [id, program_id, triggerFunctionSeasons]);
+    triggerFunctionSeasons(getRadioProgramSeasons, program_id);
+  }, [program_id, triggerFunctionSeasons]);
 
   return (
     <Container>
       {loaded ? (
         <>
-          <h1>{data.title}</h1>
+          <h1>{data.data.title}</h1>
           <Figure>
             <Figure.Image
               width={171}
               height={180}
               alt="171x180"
-              src={data.image}
+              src={data.data.image}
             />
           </Figure>
-          <p>{data.description}</p>
+          <p>{data.data.description}</p>
         </>
       ) : (
         <ClipLoader />
@@ -59,7 +59,7 @@ export const RadioProgram = () => {
           </h2>
           {loadedSeasons && (
             <ul>
-              {dataSeasons.map((item, index) => {
+              {dataSeasons.seasons.map((item, index) => {
                 return (
                   <li key={index}>
                     <Link

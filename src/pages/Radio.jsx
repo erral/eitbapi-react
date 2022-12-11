@@ -24,7 +24,7 @@ export const Radio = () => {
         <FormattedMessage id="radio.Programs" defaultMessage="Programs" />
       </h2>
       <ul>
-        {sort_by_key(data, 'title').map((item, index) => {
+        {sort_by_key(data.programs, 'title').map((item, index) => {
           return (
             <li key={index}>
               <Link to={`/${language}/radios/${id}/${item.id}`}>

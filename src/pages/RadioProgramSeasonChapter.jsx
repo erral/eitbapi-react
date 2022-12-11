@@ -8,7 +8,6 @@ import ClipLoader from 'react-spinners/ClipLoader';
 
 import Figure from 'react-bootstrap/Figure';
 import { FormattedMessage } from 'react-intl';
-import { Link } from 'react-router-dom';
 
 export const RadioProgramSeasonChapter = () => {
   const { id, program_id, season_id, chapter_id } = useParams();
@@ -16,14 +15,8 @@ export const RadioProgramSeasonChapter = () => {
   const { triggerFunction, data, loaded } = useAsync();
 
   useEffect(() => {
-    triggerFunction(
-      getRadioProgramSeasonChapter,
-      id,
-      program_id,
-      season_id,
-      chapter_id,
-    );
-  }, [id, program_id, season_id, chapter_id, triggerFunction]);
+    triggerFunction(getRadioProgramSeasonChapter, chapter_id);
+  }, [chapter_id, triggerFunction]);
 
   return (
     <Container>
