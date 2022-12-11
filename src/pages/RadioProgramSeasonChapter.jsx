@@ -10,7 +10,7 @@ import Figure from 'react-bootstrap/Figure';
 import { FormattedMessage } from 'react-intl';
 
 export const RadioProgramSeasonChapter = () => {
-  const { id, program_id, season_id, chapter_id } = useParams();
+  const { chapter_id } = useParams();
 
   const { triggerFunction, data, loaded } = useAsync();
 

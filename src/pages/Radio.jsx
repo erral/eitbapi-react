@@ -7,6 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
 
 export const Radio = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ export const Radio = () => {
   }, [id, triggerFunction]);
 
   return loaded ? (
-    <>
+    <Container>
       <h2>
         <FormattedMessage id="radio.Programs" defaultMessage="Programs" />
       </h2>
@@ -34,7 +35,7 @@ export const Radio = () => {
           );
         })}
       </ul>
-    </>
+    </Container>
   ) : (
     <ClipLoader />
   );

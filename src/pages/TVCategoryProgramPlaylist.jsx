@@ -11,7 +11,6 @@ import { useAsync } from '../hooks';
 
 export const TVCategoryProgramPlaylist = () => {
   const { langCode: language } = useSelector((state) => state.language);
-  const LANGUAGE = language.toUpperCase();
   const { category_id, program_id, playlist_id } = useParams();
 
   const { triggerFunction, data, loaded } = useAsync();
@@ -19,7 +18,6 @@ export const TVCategoryProgramPlaylist = () => {
   useEffect(() => {
     triggerFunction(getTVCategoryProgramPlaylist, playlist_id);
   }, [playlist_id, triggerFunction]);
-  console.log(data);
   return (
     <Container>
       {loaded ? (

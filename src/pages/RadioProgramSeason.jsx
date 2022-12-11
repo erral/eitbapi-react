@@ -1,14 +1,13 @@
 import { useSelector } from 'react-redux';
 
-import { getRadioProgramSeason } from '../api';
-import { useAsync } from '../hooks';
-import { useParams } from 'react-router';
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
+import { useParams } from 'react-router';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { getRadioProgramSeason } from '../api';
+import { useAsync } from '../hooks';
 
-import Figure from 'react-bootstrap/Figure';
 import { Link } from 'react-router-dom';
 
 export const RadioProgramSeason = () => {

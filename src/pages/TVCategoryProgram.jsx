@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
-import { getTVCategoryProgramPlaylist, getTVCategory } from '../api';
+import { getTVCategoryProgramPlaylist } from '../api';
 import { sort_by_key } from '../helpers/utils';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
@@ -14,26 +14,14 @@ export const TVCategoryProgram = () => {
   const { category_id, program_id } = useParams();
 
   const { triggerFunction, data, loaded } = useAsync();
-  const {
-    triggerFunction: triggerFunctionCategory,
-    data: dataCategory,
-    loaded: loadedCategory,
-  } = useAsync();
 
   useEffect(() => {
     triggerFunction(getTVCategoryProgramPlaylist, program_id);
   }, [program_id, triggerFunction]);
 
-  useEffect(() => {
-    triggerFunctionCategory(getTVCategory, category_id);
-  }, [category_id, triggerFunctionCategory]);
-
-  console.log('data', data);
-  console.log('dataCategory', dataCategory);
-
   return (
     <Container>
-      {loadedCategory ? (
+      {loaded ? (
         <Container>
           <h1>{data.name}</h1>
           <h2>
