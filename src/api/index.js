@@ -8,9 +8,9 @@ export {
 } from './radios';
 
 export {
-  getTVs,
+  getTVCategories,
   getTVCategory,
-  getTVCategoryProgram,
   getTVCategoryProgramPlaylist,
   getTVCategoryProgramPlaylistChapter,
+  getTVCategoryPrograms,
 } from './tvs';

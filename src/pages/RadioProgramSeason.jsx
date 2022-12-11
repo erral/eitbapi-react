@@ -22,8 +22,6 @@ export const RadioProgramSeason = () => {
     triggerFunction(getRadioProgramSeason, season_id);
   }, [season_id, triggerFunction]);
 
-  console.log('data', data);
-
   return (
     <Container>
       {loaded ? (
