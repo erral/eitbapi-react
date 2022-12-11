@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Collapse from 'react-bootstrap/Collapse';
 import Button from 'react-bootstrap/Button';
-import { ListGroupItem } from 'react-bootstrap';
+
 export const TVCategory = () => {
   const { langCode: language } = useSelector((state) => state.language);
   const { category_id } = useParams();
@@ -22,7 +22,14 @@ export const TVCategory = () => {
     triggerFunction(getTVCategory, category_id);
   }, [category_id, triggerFunction]);
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState({});
+
+  const toggleItem = (index) => {
+    setOpen((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
 
   const PlayList = (props) => {
     const { program_id } = props;
@@ -35,7 +42,8 @@ export const TVCategory = () => {
 
     useEffect(() => {
       triggerFunctionPrograms(getTVCategoryPrograms, program_id);
-    }, [program_id, triggerFunctionPrograms]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
       loadedPrograms &&
@@ -66,13 +74,13 @@ export const TVCategory = () => {
                 return (
                   <ListGroup.Item>
                     <Button
-                      onClick={() => setOpen(!open)}
+                      onClick={() => toggleItem(program_index)}
                       aria-controls={`collapse-item-${program_index}`}
-                      aria-expanded={open}
+                      aria-expanded={Boolean(open[program_index])}
                     >
                       {program.title}
                     </Button>
-                    <Collapse in={open}>
+                    <Collapse in={Boolean(open[program_index])}>
                       <div id={`collapse-item-${program_index}`}>
                         <ListGroup>
                           <PlayList program_id={program.id} />
