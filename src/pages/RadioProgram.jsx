@@ -3,7 +3,6 @@ import {
   getRadioProgramSeasons,
 } from '../store/actions/radios';
 
-import { useAsync } from '../hooks';
 import { useParams } from 'react-router';
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
@@ -20,11 +19,6 @@ export const RadioProgram = () => {
   const dispatch = useDispatch();
   const program = useSelector((state) => state.radio_program_data);
   const seasons = useSelector((state) => state.radio_program_seasons);
-  const {
-    triggerFunction: triggerFunctionSeasons,
-    data: dataSeasons,
-    loaded: loadedSeasons,
-  } = useAsync();
 
   const { langCode: language } = useSelector((state) => state.language);
 
