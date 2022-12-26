@@ -18,7 +18,8 @@ export const Radio = () => {
   useEffect(() => {
     if ((!radio.loading && !radio.loaded) || !radio[id])
       dispatch(getRadioPrograms(id));
-  }, [dispatch, radio, id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   return (
     <Container>

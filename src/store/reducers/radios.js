@@ -1,5 +1,9 @@
-import { GET_RADIO_PROGRAMS } from '../actions/radios';
-import { GET_RADIOS } from '../actions/radios';
+import {
+  GET_RADIO_PROGRAMS,
+  GET_RADIOS,
+  GET_RADIO_PROGRAM_DATA,
+  GET_RADIO_PROGRAM_SEASONS,
+} from '../actions/radios';
 
 const getRadiosState = {
   loading: false,
@@ -62,6 +66,80 @@ export const getRadioProgramsReducer = (
         loaded: true,
       };
     case `${GET_RADIO_PROGRAMS}_FAIL`:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+        loaded: false,
+      };
+    // Default case
+    default:
+      return state;
+  }
+};
+
+const getRadioProgramDataState = {
+  loading: false,
+  loaded: false,
+  error: null,
+};
+export const getRadioProgramDataReducer = (
+  state = getRadioProgramDataState,
+  action,
+) => {
+  switch (action.type) {
+    case `${GET_RADIO_PROGRAM_DATA}_PENDING`:
+      return {
+        ...state,
+        [action.program_id]: [],
+        loading: true,
+        loaded: false,
+      };
+    case `${GET_RADIO_PROGRAM_DATA}_SUCCESS`:
+      return {
+        ...state,
+        [action.program_id]: action.payload.items,
+        loading: false,
+        loaded: true,
+      };
+    case `${GET_RADIO_PROGRAM_DATA}_FAIL`:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+        loaded: false,
+      };
+    // Default case
+    default:
+      return state;
+  }
+};
+
+const getRadioProgramSeasonsState = {
+  loading: false,
+  loaded: false,
+  error: null,
+};
+export const getRadioProgramSeasonsReducer = (
+  state = getRadioProgramSeasonsState,
+  action,
+) => {
+  switch (action.type) {
+    case `${GET_RADIO_PROGRAM_SEASONS}_PENDING`:
+      return {
+        ...state,
+        [action.program_id]: [],
+        loading: true,
+        loaded: false,
+      };
+    case `${GET_RADIO_PROGRAM_SEASONS}_SUCCESS`:
+      return {
+        ...state,
+        [action.program_id]: action.payload.items,
+        loading: false,
+        loaded: true,
+      };
+    case `${GET_RADIO_PROGRAM_SEASONS}_FAIL`:
       return {
         ...state,
         error: action.payload,
