@@ -1,29 +1,31 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import { FormattedMessage } from 'react-intl';
 import { useParams } from 'react-router';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { getRadioProgramSeason } from '../api';
-import { useAsync } from '../hooks';
 
 import { Link } from 'react-router-dom';
+import { getRadioProgramSeason } from '../store/actions/radios';
 
 export const RadioProgramSeason = () => {
   const { id, program_id, season_id } = useParams();
 
-  const { triggerFunction, data, loaded } = useAsync();
+  const dispatch = useDispatch();
 
   const { langCode: language } = useSelector((state) => state.language);
 
+  const season = useSelector((state) => state.radio_program_season);
+
   useEffect(() => {
-    triggerFunction(getRadioProgramSeason, season_id);
-  }, [season_id, triggerFunction]);
+    dispatch(getRadioProgramSeason(season_id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [season_id]);
 
   return (
     <Container>
-      {loaded ? (
+      {season.loaded ? (
         <>
           {/* <h1>{data.data.title}</h1>
           <p>{data.data.presenter}</p>
@@ -42,9 +44,9 @@ export const RadioProgramSeason = () => {
               defaultMessage="Chapters"
             />
           </h2>
-          {data.chapters && (
+          {season[season_id].chapters && (
             <ul>
-              {data.chapters.map((item, index) => {
+              {season[season_id].chapters.map((item, index) => {
                 return (
                   <li key={index}>
                     <Link
