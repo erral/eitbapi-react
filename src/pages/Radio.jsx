@@ -18,7 +18,7 @@ export const Radio = () => {
   useEffect(() => {
     if ((!radio.loading && !radio.loaded) || !radio[id])
       dispatch(getRadioPrograms(id));
-  }, [dispatch, id]);
+  }, [dispatch, radio, id]);
 
   return (
     <Container>

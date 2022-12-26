@@ -26,7 +26,7 @@ export const TVCategory = () => {
       !tv_category[category_id]
     )
       dispatch(getTVCategory(category_id));
-  }, [dispatch, category_id]);
+  }, [dispatch, tv_category, category_id]);
 
   useEffect(() => {
     if (tv_category[category_id] && !tv_category_programs.loading) {
@@ -35,7 +35,7 @@ export const TVCategory = () => {
           dispatch(getTVCategoryPrograms(program.id));
       });
     }
-  }, [dispatch, tv_category, category_id]);
+  }, [dispatch, tv_category, tv_category_programs, category_id]);
 
   const [open, setOpen] = useState({});
 
