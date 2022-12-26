@@ -4,6 +4,7 @@ import {
   getRadioProgramSeasons as getRadioProgramSeasonsAPI,
   getRadioProgramData as getRadioProgramDataAPI,
   getRadioProgramSeason as getRadioProgramSeasonAPI,
+  getRadioProgramSeasonChapter as getRadioProgramSeasonChapterAPI,
 } from '../../api';
 
 export const GET_RADIOS = 'GET_RADIOS';
@@ -119,6 +120,31 @@ export const getRadioProgramSeason = (season) => {
     } catch (error) {
       dispatch({
         type: `${GET_RADIO_PROGRAM_SEASON}_FAIL`,
+        payload: error,
+      });
+    }
+  };
+};
+
+export const GET_RADIO_PROGRAM_SEASON_CHAPTER =
+  'GET_RADIO_PROGRAM_SEASON_CHAPTER';
+export const getRadioProgramSeasonChapter = (chapter) => {
+  return async (dispatch) => {
+    dispatch({
+      type: `${GET_RADIO_PROGRAM_SEASON_CHAPTER}_PENDING`,
+    });
+    const result = await getRadioProgramSeasonChapterAPI(chapter);
+    try {
+      dispatch({
+        type: `${GET_RADIO_PROGRAM_SEASON_CHAPTER}_SUCCESS`,
+        chapter_id: chapter,
+        payload: {
+          items: result,
+        },
+      });
+    } catch (error) {
+      dispatch({
+        type: `${GET_RADIO_PROGRAM_SEASON_CHAPTER}_FAIL`,
         payload: error,
       });
     }

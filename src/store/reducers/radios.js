@@ -4,6 +4,7 @@ import {
   GET_RADIO_PROGRAM_DATA,
   GET_RADIO_PROGRAM_SEASONS,
   GET_RADIO_PROGRAM_SEASON,
+  GET_RADIO_PROGRAM_SEASON_CHAPTER,
 } from '../actions/radios';
 
 const getRadiosState = {
@@ -178,6 +179,43 @@ export const getRadioProgramSeasonReducer = (
         loaded: true,
       };
     case `${GET_RADIO_PROGRAM_SEASON}_FAIL`:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+        loaded: false,
+      };
+    // Default case
+    default:
+      return state;
+  }
+};
+
+const getRadioProgramSeasonChapterState = {
+  loading: false,
+  loaded: false,
+  error: null,
+};
+export const getRadioProgramSeasonChapterReducer = (
+  state = getRadioProgramSeasonChapterState,
+  action,
+) => {
+  switch (action.type) {
+    case `${GET_RADIO_PROGRAM_SEASON_CHAPTER}_PENDING`:
+      return {
+        ...state,
+        [action.chapter_id]: [],
+        loading: true,
+        loaded: false,
+      };
+    case `${GET_RADIO_PROGRAM_SEASON_CHAPTER}_SUCCESS`:
+      return {
+        ...state,
+        [action.chapter_id]: action.payload.items,
+        loading: false,
+        loaded: true,
+      };
+    case `${GET_RADIO_PROGRAM_SEASON_CHAPTER}_FAIL`:
       return {
         ...state,
         error: action.payload,

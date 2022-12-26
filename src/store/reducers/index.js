@@ -7,6 +7,7 @@ import {
   getRadioProgramDataReducer,
   getRadioProgramSeasonsReducer,
   getRadioProgramSeasonReducer,
+  getRadioProgramSeasonChapterReducer,
 } from './radios';
 import {
   getTVCategoriesReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   radio_program_data: getRadioProgramDataReducer,
   radio_program_seasons: getRadioProgramSeasonsReducer,
   radio_program_season: getRadioProgramSeasonReducer,
+  radio_program_season_chapter: getRadioProgramSeasonChapterReducer,
   tv_categories: getTVCategoriesReducer,
   tv_category: getTVCategoryReducer,
   tv_category_programs: getTVCategoryProgramsReducer,
