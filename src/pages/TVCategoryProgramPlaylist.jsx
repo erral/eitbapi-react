@@ -11,20 +11,13 @@ import { useAsync } from '../hooks';
 
 export const TVCategoryProgramPlaylist = () => {
   const { langCode: language } = useSelector((state) => state.language);
-  const LANGUAGE = language.toUpperCase();
   const { category_id, program_id, playlist_id } = useParams();
 
   const { triggerFunction, data, loaded } = useAsync();
 
   useEffect(() => {
-    triggerFunction(
-      getTVCategoryProgramPlaylist,
-      category_id,
-      program_id,
-      playlist_id,
-    );
-  }, [category_id, playlist_id, program_id, triggerFunction]);
-
+    triggerFunction(getTVCategoryProgramPlaylist, playlist_id);
+  }, [playlist_id, triggerFunction]);
   return (
     <Container>
       {loaded ? (
@@ -35,19 +28,17 @@ export const TVCategoryProgramPlaylist = () => {
             <FormattedMessage id="playlist.Chapter" defaultMessage="Chapter" />
           </h2>
           <ul>
-            {sort_by_key(data.web_media, data.orden_field, data.orden_type).map(
-              (item, index) => {
-                return (
-                  <li key={index}>
-                    <Link
-                      to={`/${language}/tvs/${category_id}/${program_id}/${playlist_id}/${item.ID}`}
-                    >
-                      {item[`NAME_${LANGUAGE}`]}
-                    </Link>
-                  </li>
-                );
-              },
-            )}
+            {sort_by_key(data.playlist, 'name').map((item, index) => {
+              return (
+                <li key={index}>
+                  <Link
+                    to={`/${language}/tvs/${category_id}/${program_id}/${playlist_id}/${item.id}`}
+                  >
+                    {item[`name`]}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </Container>
       ) : (

@@ -13,5 +13,8 @@
   "playlist.Chapter": "Atalak",
   "tvs.Categories": "Kategoriak",
   "tvs.Playlists": "Zerrendak",
-  "tvs.Programs": "Programak"
+  "tvs.Programs": "Programak",
+  "radio.Radios": "Irratiak",
+  "tvs.Watch": "Ikusi",
+  "langselector.ChangeLanguage": "Hizkuntza aldaketa"
 }

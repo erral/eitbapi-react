@@ -1,41 +1,46 @@
-import { getRadioPrograms } from '../api';
-import { useAsync } from '../hooks';
-import { useParams } from 'react-router';
 import React, { useEffect } from 'react';
-import { sort_by_key } from '../helpers/utils';
+import Container from 'react-bootstrap/Container';
 import { FormattedMessage } from 'react-intl';
-import ClipLoader from 'react-spinners/ClipLoader';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
+
+import { sort_by_key } from '../helpers/utils';
+import { getRadioPrograms } from '../store/actions/radios';
 
 export const Radio = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const radio = useSelector((state) => state.radio);
 
-  const { triggerFunction, data, loaded } = useAsync();
   const { langCode: language } = useSelector((state) => state.language);
-
   useEffect(() => {
-    triggerFunction(getRadioPrograms, id);
-  }, [id, triggerFunction]);
+    if ((!radio.loading && !radio.loaded) || !radio[id])
+      dispatch(getRadioPrograms(id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
-  return loaded ? (
-    <>
+  return (
+    <Container>
       <h2>
         <FormattedMessage id="radio.Programs" defaultMessage="Programs" />
       </h2>
-      <ul>
-        {sort_by_key(data, 'title').map((item, index) => {
-          return (
-            <li key={index}>
-              <Link to={`/${language}/radios/${id}/${item.id}`}>
-                {item.title}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </>
-  ) : (
-    <ClipLoader />
+      {radio.loaded && radio[id] ? (
+        <ul>
+          {sort_by_key(radio[id].programs, 'title').map((item, index) => {
+            return (
+              <li key={index}>
+                <Link to={`/${language}/radios/${id}/${item.id}`}>
+                  {item.title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <ClipLoader />
+      )}
+    </Container>
   );
 };

@@ -1,17 +1,16 @@
 export {
   getRadios,
   getRadioPrograms,
-  getRadioProgram,
+  getRadioProgramData,
   getRadioProgramSeasons,
   getRadioProgramSeason,
-  getRadioProgramSeasonChapters,
   getRadioProgramSeasonChapter,
 } from './radios';
 
 export {
-  getTVs,
+  getTVCategories,
   getTVCategory,
-  getTVCategoryProgram,
   getTVCategoryProgramPlaylist,
   getTVCategoryProgramPlaylistChapter,
+  getTVCategoryPrograms,
 } from './tvs';

@@ -12,10 +12,18 @@ const useAsync = () => {
       setLoading(true);
       setLoaded(false);
       try {
-        const { data } = await requestFunction(...rest);
-        setData(data);
-        setLoading(false);
-        setLoaded(true);
+        await requestFunction(...rest).then(
+          (data) => {
+            setData(data);
+            setLoading(false);
+            setLoaded(true);
+          },
+          (err) => {
+            setError(err);
+            setLoading(false);
+            setLoaded(false);
+          },
+        );
       } catch (e) {
         setError(e);
         setLoading(false);
