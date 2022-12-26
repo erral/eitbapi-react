@@ -1,33 +1,67 @@
 import { GET_RADIO_PROGRAMS } from '../actions/radios';
+import { GET_RADIOS } from '../actions/radios';
 
-const initialState = {
-  radio: '',
+const getRadiosState = {
   loading: false,
   loaded: false,
   error: null,
 };
 
-const radioRaducer = (state = initialState, action) => {
+export const getRadiosReducer = (state = getRadiosState, action) => {
   switch (action.type) {
-    case GET_RADIO_PROGRAMS:
-      return {
-        ...state,
-        radio: action.payload,
-      };
-    case `${GET_RADIO_PROGRAMS}_SUCCESS`:
-      return {
-        ...state,
-        radio: action.payload,
-        loading: false,
-        loaded: true,
-      };
-    case `${GET_RADIO_PROGRAMS}_PENDING`:
+    case `${GET_RADIOS}_PENDING`:
       return {
         ...state,
         loading: true,
         loaded: false,
+        data: [],
       };
-    case `${GET_RADIO_PROGRAMS}_ERROR`:
+    case `${GET_RADIOS}_SUCCESS`:
+      return {
+        ...state,
+        data: action.payload?.items?.radios,
+        loading: false,
+        loaded: true,
+      };
+    case `${GET_RADIOS}_FAIL`:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+        loaded: false,
+        data: [],
+      };
+    // Default case
+    default:
+      return state;
+  }
+};
+
+const getRadioProgramsState = {
+  loading: false,
+  loaded: false,
+  error: null,
+};
+export const getRadioProgramsReducer = (
+  state = getRadioProgramsState,
+  action,
+) => {
+  switch (action.type) {
+    case `${GET_RADIO_PROGRAMS}_PENDING`:
+      return {
+        ...state,
+        [action.radio_id]: [],
+        loading: true,
+        loaded: false,
+      };
+    case `${GET_RADIO_PROGRAMS}_SUCCESS`:
+      return {
+        ...state,
+        [action.radio_id]: action.payload.items,
+        loading: false,
+        loaded: true,
+      };
+    case `${GET_RADIO_PROGRAMS}_FAIL`:
       return {
         ...state,
         error: action.payload,
@@ -39,5 +73,3 @@ const radioRaducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default radioRaducer;
