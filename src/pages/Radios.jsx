@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import { FormattedMessage } from 'react-intl';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 

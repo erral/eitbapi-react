@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import { getRadioProgramSeasonChapter } from '../store/actions/radios';
-import { useParams } from 'react-router';
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
+import { useParams } from 'react-router';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { getRadioProgramSeasonChapter } from '../store/actions/radios';
 
 import Figure from 'react-bootstrap/Figure';
 import { FormattedMessage } from 'react-intl';
