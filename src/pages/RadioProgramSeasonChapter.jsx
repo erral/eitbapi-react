@@ -16,7 +16,9 @@ export const RadioProgramSeasonChapter = () => {
   const chapter = useSelector((state) => state.radio_program_season_chapter);
 
   useEffect(() => {
-    dispatch(getRadioProgramSeasonChapter(chapter_id));
+    if (!chapter.loading && !chapter.loaded) {
+      dispatch(getRadioProgramSeasonChapter(chapter_id));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapter_id]);
 

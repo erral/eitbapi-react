@@ -19,7 +19,9 @@ export const RadioProgramSeason = () => {
   const season = useSelector((state) => state.radio_program_season);
 
   useEffect(() => {
-    dispatch(getRadioProgramSeason(season_id));
+    if (!season.loading && !season.loaded) {
+      dispatch(getRadioProgramSeason(season_id));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [season_id]);
 
