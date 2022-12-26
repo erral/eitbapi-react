@@ -15,5 +15,6 @@
   "tvs.Playlists": "Listas",
   "tvs.Programs": "Programas",
   "radio.Radios": "Radios",
-  "tvs.Watch": "Ver"
+  "tvs.Watch": "Ver",
+  "langselector.ChangeLanguage": "Cambio de idioma"
 }
