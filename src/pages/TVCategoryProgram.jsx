@@ -1,46 +1,67 @@
-import { useAsync } from '../hooks';
 import React, { useEffect } from 'react';
+import { Figure } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
-import ClipLoader from 'react-spinners/ClipLoader';
+import ListGroup from 'react-bootstrap/ListGroup';
 import { FormattedMessage } from 'react-intl';
-import { getTVCategoryProgramPlaylist } from '../api';
-import { sort_by_key } from '../helpers/utils';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
+
+import { sort_by_key } from '../helpers/utils';
+import { getTVCategoryPrograms } from '../store/actions/tvs';
 
 export const TVCategoryProgram = () => {
   const { langCode: language } = useSelector((state) => state.language);
   const { category_id, program_id } = useParams();
 
-  const { triggerFunction, data, loaded } = useAsync();
+  const dispatch = useDispatch();
 
+  const tv_category_programs = useSelector(
+    (state) => state.tv_category_programs,
+  );
   useEffect(() => {
-    triggerFunction(getTVCategoryProgramPlaylist, program_id);
-  }, [program_id, triggerFunction]);
+    if (!tv_category_programs.loading && !tv_category_programs.loaded) {
+      dispatch(getTVCategoryPrograms(program_id));
+    }
+  }, [program_id]);
+
+  const getSmallestImage = (images) => {
+    return sort_by_key(images, 'width').slice(0, 1)[0];
+  };
 
   return (
     <Container>
-      {loaded ? (
+      {tv_category_programs.loaded ? (
         <Container>
-          <h1>{data.name}</h1>
+          <h1>{tv_category_programs[program_id].title}</h1>
+          <p>{tv_category_programs[program_id].description}</p>
+          <Figure>
+            <Figure.Image
+              src={
+                getSmallestImage(tv_category_programs[program_id].images).url
+              }
+            />
+          </Figure>
           <h2>
             <FormattedMessage id="tvs.Playlists" defaultMessage="Playlists" />
           </h2>
 
-          <ul>
-            {sort_by_key(data.playlist, 'name').map((item, index) => {
+          {tv_category_programs.loaded &&
+            sort_by_key(
+              tv_category_programs[program_id]?.playlist,
+              'publication_date',
+            ).map((playlist_item, playlist_index) => {
               return (
-                <li key={`${index}`}>
+                <ListGroup.Item key={playlist_index}>
                   <Link
-                    to={`/${language}/tvs/${category_id}/${program_id}/${item.id}`}
+                    to={`/${language}/tvs/${category_id}/${program_id}/${playlist_item.id}`}
                   >
-                    {item.name}
+                    {playlist_item.name}
                   </Link>
-                </li>
+                </ListGroup.Item>
               );
             })}
-          </ul>
         </Container>
       ) : (
         <ClipLoader />

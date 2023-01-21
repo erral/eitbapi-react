@@ -1,12 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import { FormattedMessage } from 'react-intl';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { Link } from 'react-router-dom';
 import { getRadioProgramSeason } from '../store/actions/radios';
 
 export const RadioProgramSeason = () => {

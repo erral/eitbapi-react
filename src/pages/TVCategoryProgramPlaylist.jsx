@@ -1,40 +1,49 @@
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import { FormattedMessage } from 'react-intl';
-import { useSelector } from 'react-redux';
+import { FormattedMessage, FormattedDate } from 'react-intl';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { getTVCategoryProgramPlaylist } from '../api';
+
 import { sort_by_key } from '../helpers/utils';
-import { useAsync } from '../hooks';
+import { getTVCategoryProgramPlaylist } from '../store/actions/tvs';
 
 export const TVCategoryProgramPlaylist = () => {
   const { langCode: language } = useSelector((state) => state.language);
   const { category_id, program_id, playlist_id } = useParams();
 
-  const { triggerFunction, data, loaded } = useAsync();
+  const dispatch = useDispatch();
+  const playlist = useSelector((state) => state.tv_category_program_playlist);
 
   useEffect(() => {
-    triggerFunction(getTVCategoryProgramPlaylist, playlist_id);
-  }, [playlist_id, triggerFunction]);
+    if (!playlist.loading && !playlist.loaded) {
+      dispatch(getTVCategoryProgramPlaylist(playlist_id));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playlist_id]);
   return (
     <Container>
-      {loaded ? (
+      {playlist.loaded ? (
         <Container>
-          <h1>{data.name}</h1>
-          <p>{data.desc_group}</p>
+          <h1>{playlist[playlist_id].name}</h1>
+          <p>{playlist[playlist_id].desc_group}</p>
           <h2>
             <FormattedMessage id="playlist.Chapter" defaultMessage="Chapter" />
           </h2>
           <ul>
-            {sort_by_key(data.playlist, 'name').map((item, index) => {
+            {sort_by_key(
+              playlist[playlist_id].playlist,
+              'publication_date',
+              'DESC',
+            ).map((item, index) => {
               return (
                 <li key={index}>
+                  <FormattedDate value={item['publication_date']} /> {': '}
                   <Link
                     to={`/${language}/tvs/${category_id}/${program_id}/${playlist_id}/${item.id}`}
                   >
-                    {item[`name`]}
+                    {item[`name`]}{' '}
                   </Link>
                 </li>
               );

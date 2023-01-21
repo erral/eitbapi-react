@@ -5,8 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { getTVCategories } from '../store/actions/tvs';
 import { sort_by_key } from '../helpers/utils';
+import { getTVCategories } from '../store/actions/tvs';
 
 export const TVs = () => {
   const { langCode: language } = useSelector((state) => state.language);

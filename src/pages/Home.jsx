@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import Container from 'react-bootstrap/Container';
+import { FormattedMessage } from 'react-intl';
 
 export const Home = () => {
   return (

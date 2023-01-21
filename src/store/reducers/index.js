@@ -2,17 +2,19 @@ import { combineReducers } from 'redux';
 
 import languageReducer from './language';
 import {
+  getRadioProgramDataReducer,
+  getRadioProgramSeasonChapterReducer,
+  getRadioProgramSeasonReducer,
+  getRadioProgramSeasonsReducer,
   getRadioProgramsReducer,
   getRadiosReducer,
-  getRadioProgramDataReducer,
-  getRadioProgramSeasonsReducer,
-  getRadioProgramSeasonReducer,
-  getRadioProgramSeasonChapterReducer,
 } from './radios';
 import {
   getTVCategoriesReducer,
-  getTVCategoryReducer,
+  getTVCategoryProgramPlaylistChapterReducer,
+  getTVCategoryProgramPlaylistReducer,
   getTVCategoryProgramsReducer,
+  getTVCategoryReducer,
 } from './tvs';
 
 const rootReducer = combineReducers({
@@ -26,6 +28,9 @@ const rootReducer = combineReducers({
   tv_categories: getTVCategoriesReducer,
   tv_category: getTVCategoryReducer,
   tv_category_programs: getTVCategoryProgramsReducer,
+  tv_category_program_playlist: getTVCategoryProgramPlaylistReducer,
+  tv_category_program_playlist_chapter:
+    getTVCategoryProgramPlaylistChapterReducer,
 });
 
 export default rootReducer;

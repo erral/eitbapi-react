@@ -1,35 +1,55 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import { FormattedMessage } from 'react-intl';
-import { useParams } from 'react-router';
-import ClipLoader from 'react-spinners/ClipLoader';
-import { getTVCategoryProgramPlaylistChapter } from '../api';
-import { useAsync } from '../hooks';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import { FormattedMessage, FormattedDate } from 'react-intl';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import ClipLoader from 'react-spinners/ClipLoader';
+
+import { program_language } from '../helpers/utils';
+import { getTVCategoryProgramPlaylistChapter } from '../store/actions/tvs';
 
 export const TVCategoryProgramPlaylistChapter = () => {
   const { chapter_id } = useParams();
 
-  const { triggerFunction, data, loaded } = useAsync();
+  const dispatch = useDispatch();
+  const data = useSelector(
+    (state) => state.tv_category_program_playlist_chapter,
+  );
 
   useEffect(() => {
-    triggerFunction(getTVCategoryProgramPlaylistChapter, chapter_id);
-  }, [chapter_id, triggerFunction]);
+    if (!data.loading && !data.loaded) {
+      dispatch(getTVCategoryProgramPlaylistChapter(chapter_id));
+    }
+  }, [chapter_id]);
   return (
     <Container>
-      {loaded ? (
+      {data.loaded ? (
         <>
-          <h1>{data.name}</h1>
-          <p>{data.description}</p>
+          <h1>{data[chapter_id].name}</h1>
+          <p>{data[chapter_id].description}</p>
+          <p>
+            <FormattedMessage
+              id="tv.chapter.language"
+              defaultMessage="Language:"
+            />{' '}
+            {program_language(data[chapter_id].language)}
+          </p>
 
-          {data.playlist.map((item, index) => {
+          {data[chapter_id].playlist.map((item, index) => {
             return (
               <Container key={index}>
                 <p>{item.chapter_title}</p>
                 <p>{item.description}</p>
-                <p>{item.publication_date}</p>
+                <p>
+                  <FormattedMessage
+                    id="tv.chapter.chapterdate"
+                    defaultMessage="Chapter date:"
+                  />{' '}
+                  <FormattedDate value={item['publication_date']} />
+                </p>
 
                 <Tabs
                   className="mb-3"

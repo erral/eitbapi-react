@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import { useParams } from 'react-router';
-import ClipLoader from 'react-spinners/ClipLoader';
-import { getRadioProgramSeasonChapter } from '../store/actions/radios';
-
 import Figure from 'react-bootstrap/Figure';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import ClipLoader from 'react-spinners/ClipLoader';
+
+import { getRadioProgramSeasonChapter } from '../store/actions/radios';
 
 export const RadioProgramSeasonChapter = () => {
   const { chapter_id } = useParams();

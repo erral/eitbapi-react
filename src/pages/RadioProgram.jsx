@@ -1,17 +1,16 @@
-import {
-  getRadioProgramData,
-  getRadioProgramSeasons,
-} from '../store/actions/radios';
-
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
+import Figure from 'react-bootstrap/Figure';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import Figure from 'react-bootstrap/Figure';
+import {
+  getRadioProgramData,
+  getRadioProgramSeasons,
+} from '../store/actions/radios';
 
 export const RadioProgram = () => {
   const { id, program_id } = useParams();
