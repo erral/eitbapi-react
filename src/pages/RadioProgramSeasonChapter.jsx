@@ -1,50 +1,47 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import { getRadioProgramSeasonChapter } from '../api';
-import { useAsync } from '../hooks';
-import { useParams } from 'react-router';
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import ClipLoader from 'react-spinners/ClipLoader';
-
 import Figure from 'react-bootstrap/Figure';
 import { FormattedMessage } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import ClipLoader from 'react-spinners/ClipLoader';
+
+import { getRadioProgramSeasonChapter } from '../store/actions/radios';
 
 export const RadioProgramSeasonChapter = () => {
-  const { id, program_id, season_id, chapter_id } = useParams();
+  const { chapter_id } = useParams();
 
-  const { triggerFunction, data, loaded } = useAsync();
+  const dispatch = useDispatch();
+  const chapter = useSelector((state) => state.radio_program_season_chapter);
 
   useEffect(() => {
-    triggerFunction(
-      getRadioProgramSeasonChapter,
-      id,
-      program_id,
-      season_id,
-      chapter_id,
-    );
-  }, [id, program_id, season_id, chapter_id, triggerFunction]);
+    if (!chapter.loading && !chapter.loaded) {
+      dispatch(getRadioProgramSeasonChapter(chapter_id));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chapter_id]);
 
   return (
     <Container>
-      {loaded ? (
+      {chapter.loaded ? (
         <>
-          <h1>{data.title}</h1>
-          <p>{data.presenter}</p>
+          <h1>{chapter[chapter_id].title}</h1>
+          <p>{chapter[chapter_id].presenter}</p>
           <Figure>
             <Figure.Image
               width={171}
               height={180}
               alt="171x180"
-              src={data.image}
+              src={chapter[chapter_id].image}
             />
           </Figure>
-          <p>{data.description}</p>
+          <p>{chapter[chapter_id].description}</p>
           <p>
-            <audio controls src={data.audio} />
+            <audio controls src={chapter[chapter_id].audio} />
           </p>
           <p>
-            <a href={data.audio} download={true}>
+            <a href={chapter[chapter_id].audio} download={true}>
               <FormattedMessage
                 id="chapter.download"
                 defaultMessage="Download"

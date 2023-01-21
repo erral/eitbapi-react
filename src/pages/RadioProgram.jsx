@@ -1,55 +1,58 @@
-import { getRadioProgram, getRadioProgramSeasons } from '../api';
-import { useAsync } from '../hooks';
-import { useParams } from 'react-router';
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import ClipLoader from 'react-spinners/ClipLoader';
-import { FormattedMessage } from 'react-intl';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-
 import Figure from 'react-bootstrap/Figure';
+import { FormattedMessage } from 'react-intl';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
+
+import {
+  getRadioProgramData,
+  getRadioProgramSeasons,
+} from '../store/actions/radios';
 
 export const RadioProgram = () => {
   const { id, program_id } = useParams();
 
-  const { triggerFunction, data, loaded } = useAsync();
-  const {
-    triggerFunction: triggerFunctionSeasons,
-    data: dataSeasons,
-    loaded: loadedSeasons,
-  } = useAsync();
+  const dispatch = useDispatch();
+  const program = useSelector((state) => state.radio_program_data);
+  const seasons = useSelector((state) => state.radio_program_seasons);
 
   const { langCode: language } = useSelector((state) => state.language);
 
   useEffect(() => {
-    triggerFunction(getRadioProgram, id, program_id);
-  }, [id, program_id, triggerFunction]);
+    if ((!program.loading && !program.loaded) || !program[program_id])
+      dispatch(getRadioProgramData(program_id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   useEffect(() => {
-    triggerFunctionSeasons(getRadioProgramSeasons, id, program_id);
-  }, [id, program_id, triggerFunctionSeasons]);
+    if ((!seasons.loading && !seasons.loaded) || !seasons[program_id])
+      dispatch(getRadioProgramSeasons(program_id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   return (
     <Container>
-      {loaded ? (
+      {program.loaded ? (
         <>
-          <h1>{data.title}</h1>
+          <h1>{program[program_id].data.title}</h1>
           <Figure>
             <Figure.Image
               width={171}
               height={180}
               alt="171x180"
-              src={data.image}
+              src={program[program_id].data.image}
             />
           </Figure>
-          <p>{data.description}</p>
+          <p>{program[program_id].data.description}</p>
         </>
       ) : (
         <ClipLoader />
       )}
 
-      {loadedSeasons ? (
+      {seasons.loaded ? (
         <>
           <h2>
             <FormattedMessage
@@ -57,21 +60,19 @@ export const RadioProgram = () => {
               defaultMessage="Seasons"
             />
           </h2>
-          {loadedSeasons && (
-            <ul>
-              {dataSeasons.map((item, index) => {
-                return (
-                  <li key={index}>
-                    <Link
-                      to={`/${language}/radios/${id}/${program_id}/${item.id}`}
-                    >
-                      {item.title} ({item.presenter})
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
+          <ul>
+            {seasons[program_id].seasons.map((item, index) => {
+              return (
+                <li key={index}>
+                  <Link
+                    to={`/${language}/radios/${id}/${program_id}/${item.id}`}
+                  >
+                    {item.title} ({item.presenter})
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </>
       ) : (
         <ClipLoader />

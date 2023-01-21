@@ -1,9 +1,10 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
 import { FormattedMessage } from 'react-intl';
 
 export const Home = () => {
   return (
-    <div>
+    <Container>
       <h1>
         <FormattedMessage
           id="home.title"
@@ -32,6 +33,6 @@ export const Home = () => {
           defaultMessage="Laster APIa zuen eskura!"
         />
       </p>
-    </div>
+    </Container>
   );
 };

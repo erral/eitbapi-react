@@ -1,72 +1,53 @@
-import { useSelector } from 'react-redux';
-
-import { getRadioProgramSeason, getRadioProgramSeasonChapters } from '../api';
-import { useAsync } from '../hooks';
-import { useParams } from 'react-router';
 import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import ClipLoader from 'react-spinners/ClipLoader';
 import { FormattedMessage } from 'react-intl';
-
-import Figure from 'react-bootstrap/Figure';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
+
+import { getRadioProgramSeason } from '../store/actions/radios';
 
 export const RadioProgramSeason = () => {
   const { id, program_id, season_id } = useParams();
 
-  const { triggerFunction, data, loaded } = useAsync();
-  const {
-    triggerFunction: triggerFunctionChapters,
-    data: dataChapters,
-    loaded: loadedChapters,
-  } = useAsync();
+  const dispatch = useDispatch();
 
   const { langCode: language } = useSelector((state) => state.language);
 
-  useEffect(() => {
-    triggerFunction(getRadioProgramSeason, id, program_id, season_id);
-  }, [id, program_id, season_id, triggerFunction]);
+  const season = useSelector((state) => state.radio_program_season);
 
   useEffect(() => {
-    triggerFunctionChapters(
-      getRadioProgramSeasonChapters,
-      id,
-      program_id,
-      season_id,
-    );
-  }, [id, program_id, season_id, triggerFunctionChapters]);
+    if (!season.loading && !season.loaded) {
+      dispatch(getRadioProgramSeason(season_id));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [season_id]);
 
   return (
     <Container>
-      {loaded ? (
+      {season.loaded ? (
         <>
-          <h1>{data.title}</h1>
-          <p>{data.presenter}</p>
+          {/* <h1>{data.data.title}</h1>
+          <p>{data.data.presenter}</p>
           <Figure>
             <Figure.Image
               width={171}
               height={180}
               alt="171x180"
-              src={data.image}
+              src={data.data.image}
             />
           </Figure>
-          <p>{data.description}</p>
-        </>
-      ) : (
-        <ClipLoader />
-      )}
-
-      {loadedChapters ? (
-        <>
+          <p>{data.data.description}</p> */}
           <h2>
             <FormattedMessage
               id="radioprogramseason.Chapters"
               defaultMessage="Chapters"
             />
           </h2>
-          {loadedChapters && (
+          {season[season_id].chapters && (
             <ul>
-              {dataChapters.map((item, index) => {
+              {season[season_id].chapters.map((item, index) => {
                 return (
                   <li key={index}>
                     <Link

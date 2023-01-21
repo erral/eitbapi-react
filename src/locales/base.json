@@ -7,11 +7,14 @@
   "home.title": "EITB Nahieran alternatiboa",
   "home.useMenu": "Erabili goiko menua irrati zein telebista programak ikusi eta bilatzeko",
   "home.welcome": "Kaixo EITB Nahieran alternatiboa da hau. Azkenaldian ikasi dudan JS eta React apurrarekin egindakoa.",
+  "langselector.ChangeLanguage": "Change Language",
   "playlist.Chapter": "Chapter",
   "radio.Programs": "Programs",
+  "radio.Radios": "Radios",
   "radioprogram.Seasons": "Seasons",
   "radioprogramseason.Chapters": "Chapters",
   "tvs.Categories": "Categories",
   "tvs.Playlists": "Playlists",
-  "tvs.Programs": "Programs"
+  "tvs.Programs": "Programs",
+  "tvs.Watch": "Watch"
 }
