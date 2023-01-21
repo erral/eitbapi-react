@@ -24,6 +24,7 @@ export const TVCategoryProgram = () => {
     if (!tv_category_programs.loading && !tv_category_programs.loaded) {
       dispatch(getTVCategoryPrograms(program_id));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [program_id]);
 
   const getSmallestImage = (images) => {

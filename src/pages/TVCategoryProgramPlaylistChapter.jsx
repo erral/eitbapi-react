@@ -23,6 +23,7 @@ export const TVCategoryProgramPlaylistChapter = () => {
     if (!data.loading && !data.loaded) {
       dispatch(getTVCategoryProgramPlaylistChapter(chapter_id));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapter_id]);
   return (
     <Container>
