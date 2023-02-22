@@ -1,16 +1,14 @@
 import { FormattedMessage } from 'react-intl';
 
-function string_to_slug(str) {
+export const string_to_slug = (str) => {
   // console.log('string_to_slug: ', str);
   return str
     .toLowerCase()
     .replace(/ /g, '-')
     .replace(/[^\w-]+/g, '');
-}
+};
 
-export { string_to_slug };
-
-const sort_by_key = (list, key, order_type = 'ASC') => {
+export const sort_by_key = (list, key, order_type = 'ASC') => {
   if (order_type === 'ASC') {
     list.sort((a, b) => {
       if (a[key] < b[key]) {
@@ -36,8 +34,6 @@ const sort_by_key = (list, key, order_type = 'ASC') => {
   return list;
 };
 
-export { sort_by_key };
-
 const LANGUAGES = {
   eu: <FormattedMessage id="eu" defaultMessage="Basque" />,
   es: <FormattedMessage id="es" defaultMessage="Spanish" />,
@@ -45,9 +41,11 @@ const LANGUAGES = {
   fr: <FormattedMessage id="fr" defaultMessage="French" />,
 };
 
-const program_language = (identifier) => {
+export const program_language = (identifier) => {
   const lower_case = identifier.toLowerCase();
   return LANGUAGES[lower_case];
 };
 
-export { program_language };
+export const getSmallestImage = (images) => {
+  return sort_by_key(images, 'width').slice(0, 1)[0];
+};
