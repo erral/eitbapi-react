@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Container from 'react-bootstrap/Container';
+import { Card, Col, Row } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -16,26 +16,36 @@ export const Radios = () => {
   }, [dispatch, radios]);
 
   return (
-    <Container>
+    <>
       <h1>
         <FormattedMessage id="radio.Radios" defaultMessage="Radios" />
       </h1>
       {radios.loaded ? (
-        <ul>
+        <Row lg={4} md={3} sm={3} xs={2}>
           {radios?.data?.length > 0 &&
             radios?.data.map((item, index) => {
               return (
-                <li key={index}>
-                  <Link to={`/${language}/radios/${item.slug}`}>
-                    {item.name}
-                  </Link>
-                </li>
+                <Col key={index}>
+                  <Card className="tv-category">
+                    <Card.Body>
+                      <Card.Title>{item.name}</Card.Title>
+                      <Card.Text>
+                        <Link to={`/${language}/radios/${item.slug}`}>
+                          <FormattedMessage
+                            id="See more"
+                            defaultMessage="See more"
+                          />
+                        </Link>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
               );
             })}
-        </ul>
+        </Row>
       ) : (
         <ClipLoader />
       )}
-    </Container>
+    </>
   );
 };
