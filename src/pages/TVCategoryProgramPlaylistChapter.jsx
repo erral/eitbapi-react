@@ -20,7 +20,7 @@ export const TVCategoryProgramPlaylistChapter = () => {
   );
 
   useEffect(() => {
-    if (!data.loading && !data.loaded) {
+    if (!data.loading && !data[chapter_id]) {
       dispatch(getTVCategoryProgramPlaylistChapter(chapter_id));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

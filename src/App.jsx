@@ -28,7 +28,7 @@ function App() {
   return (
     <IntlProvider locale={langCode} messages={messages[langCode]}>
       <Navbar />
-      <Container>
+      <Container className="page-container">
         <Outlet />
       </Container>
     </IntlProvider>

@@ -10,10 +10,10 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
   const { langCode } = useSelector((state) => state.language);
   return (
-    <BootstrapNavbar expand="lg">
+    <BootstrapNavbar expand="lg" bg="primary" className="header-navbar">
       <Container>
         <BootstrapNavbar.Brand as={Link} to="/">
-          EITB Nahieran (alternatiboa)
+          EITB Nahieran (alt)
         </BootstrapNavbar.Brand>
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
