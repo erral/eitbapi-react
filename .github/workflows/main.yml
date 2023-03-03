@@ -14,6 +14,7 @@ jobs:
         run: npm run build --base eitbapi-react
       - name: Deploy pages
         uses: crazy-max/ghaction-github-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           build_dir: build
         env:
