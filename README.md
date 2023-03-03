@@ -4,96 +4,56 @@
 
 Azkenaldian ikasitako JS eta React-ekin egina.
 
-Teorian hau [https://erral.github.io/eitbapi-react/](https://erral.github.io/eitbapi-react/) helbidean ikusi beharko litzateke, baina ez da ikusiko. GitHub Pages zerbitzuan ez dabil React-en defektuzko routerra eta beraz [HashRouter](https://reactrouter.com/en/main/router-components/hash-router) erabili beharko nuke. Baina ez dakit hori ganoraz konfiguratzen (lasai, eskatuko dut laguntza) eta errorea ematen dit; beraz dagoenean utziko dut.
+Hau [https://erral.github.io/eitbapi-react/](https://erral.github.io/eitbapi-react/) helbidean ikusten da. Jatorrizkoa baino hobea iruditzen zait niri!
+
+GitHub Pages zerbitzuan ostatatuta dago
 
 Momentuz `npm run start` eginda txukun dabil.
 
 ## Eta APIa?
 
-Eh... bai, arrazoia duzu. Herokul doako kontuak desaktibatu dituenetik nire EITB Nahieran APIa ez dabil. Hori inbestigatzen jardun naiz, eta azkenean APIa egin beharrean web alternatiboa egin dut :P
+Hemen duzu [API berriaren kodea](https://github.com/erral/eitbapijs) eta [hemen ikusi dezakezu](https://eitbapi.erral.workers.dev/).
 
-Bai, bai, saiatuko naiz APIa berriz martxan jartzen, edo JavaScripta erabiliz egiten, ea horrela GitHub pages edo antzeko lekuren baten jar dezakedan.
+Guztia [nahieran-js](https://github.com/bipoza/nahieran-js) liburutegia erabiliz egindakoa.
 
-# Getting Started with Create React App
+## Martxan jartzeko
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hemen instalazio eta martxan jartzeko argibide batzuk. Erabili [nvm](https://github.com/nvm-sh/nvm) instalazioa egiteko, zure burua lasaiago biziko da.
 
-## Available Scripts
+Dependentziak instalatu:
 
-In the project directory, you can run:
+```
+nvm use
+npm install
+```
 
-### `npm start`
+Martxan jarri (garapen ingurunean, berak irekiko du nabigatzailea):
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+nvm use
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Errore batzuk...
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# About autoprefixer: Replace color-adjust to print-color-adjust. The color-adjust shorthand is currently deprecated error.
+### About autoprefixer: Replace color-adjust to print-color-adjust. The color-adjust shorthand is currently deprecated error.
 
 https://github.com/twbs/bootstrap/discussions/36286
 
 Hau konpontzeko, npm install autoprefixer@10.4.5 --save-exact instalatu da. baina etorkizunean bug hau bootstrapetik konpontzen dutenean kendu dezakegu.
 
-# Intl polyfill - EU pollyfills for unsupported browsers
+### Intl polyfill - EU pollyfills for unsupported browsers
 
 Error: [@formatjs/intl Error MISSING_DATA] Missing locale data for locale: "eu" in Intl.NumberFormat. Using default locale: "en" as fallback.
 
 Nabigatzaile batzuek ez dute euskarazko hizkuntzak onartzen. Horretarako euskarazko polyfills-ak eskuz instalatu behar ditugu.
 \*MacOS-eko chromen behintzat ez du euskarazko euskarririk.
+
+## Eskertzak
+
+Eskerrik asko benetan lagun guzti hauei, emandako laguntzagatik
+
+- [Xabi Ezpeleta](https://github.com/xezpeleta): azken xaxatzailea eta API helbideak bidali zizkidana
+- [Aitzol Naberan](https://github.com/aitzol): nire bihotzeko sysadmina eta JavaScript APIaren ideia izan eta lehen bertsioa idatzi zuena
+- [Bittor Poza](https://github.com/bipoza): JavaScript eta React magoa. Agur eta ohore!
+- [Ion Lizarazu](https://github.com/ionlizarazu): JavaScript eta React magoa. Paleta eta pintzelarekin dena txukuntzen!
