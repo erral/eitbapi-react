@@ -1,8 +1,13 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
 $theme-colors: (
+    "primary": #279AF1,
+    "secondary": #4C5B61,
+    "white": #F7F7FF,
     "danger": tomato,
     "warning": orange,
 );
-// $primary: #000000;
+// $primary: #ed9b33;
 // $secondary: teal;
 // $navbar-light-color: rgb(42, 42, 42);
 // $navbar-light-hover-color: $secondary;

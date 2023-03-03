@@ -17,14 +17,14 @@ export const TVCategoryProgramPlaylist = () => {
   const playlist = useSelector((state) => state.tv_category_program_playlist);
 
   useEffect(() => {
-    if (!playlist.loading && !playlist.loaded) {
+    if (!playlist.loading && !playlist[playlist_id]) {
       dispatch(getTVCategoryProgramPlaylist(playlist_id));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playlist_id]);
   return (
     <Container>
-      {playlist.loaded ? (
+      {playlist.loaded && playlist[playlist_id] ? (
         <Container>
           <h1>{playlist[playlist_id].name}</h1>
           <p>{playlist[playlist_id].desc_group}</p>
