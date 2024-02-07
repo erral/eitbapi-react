@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { program_language } from '../helpers/utils';
 import { getTVCategoryProgramPlaylistChapter } from '../store/actions/tvs';
 
 export const TVCategoryProgramPlaylistChapter = () => {
@@ -31,27 +30,15 @@ export const TVCategoryProgramPlaylistChapter = () => {
         <>
           <h1>{data[chapter_id].name}</h1>
           <p>{data[chapter_id].description}</p>
-          <p>
-            <FormattedMessage
-              id="tv.chapter.language"
-              defaultMessage="Language:"
-            />{' '}
-            {program_language(data[chapter_id].language)}
-          </p>
 
           {data[chapter_id].playlist.map((item, index) => {
             return (
               <Container key={index}>
-                <p>{item.chapter_title}</p>
+                <h2>
+                  {item.chapter_title} (
+                  <FormattedDate value={item['publication_date']} />)
+                </h2>
                 <p>{item.description}</p>
-                <p>
-                  <FormattedMessage
-                    id="tv.chapter.chapterdate"
-                    defaultMessage="Chapter date:"
-                  />{' '}
-                  <FormattedDate value={item['publication_date']} />
-                </p>
-
                 <Tabs
                   className="mb-3"
                   id="playlist-items"
@@ -67,11 +54,7 @@ export const TVCategoryProgramPlaylistChapter = () => {
                         <h2>
                           {video_item.width} x {video_item.height}
                         </h2>
-                        <video
-                          width={video_item.width}
-                          height={video_item.height}
-                          controls
-                        >
+                        <video width={'100%'} controls>
                           <source src={video_item.url} />
                         </video>
                         <br />

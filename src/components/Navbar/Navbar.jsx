@@ -10,7 +10,12 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
   const { langCode } = useSelector((state) => state.language);
   return (
-    <BootstrapNavbar expand="lg" bg="primary" className="header-navbar">
+    <BootstrapNavbar
+      collapseOnSelect
+      expand="sm"
+      bg="primary"
+      className="header-navbar"
+    >
       <Container>
         <BootstrapNavbar.Brand as={Link} to="/">
           EITB Nahieran (alt)
@@ -18,13 +23,21 @@ const Navbar = () => {
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">
+            <Nav.Link eventKey={1} as={Link} to="/">
               <FormattedMessage id="Home" defaultMessage="Home" />
             </Nav.Link>
-            <Nav.Link as={Link} to={`${ROUTES?.RADIOS.paths[langCode]}`}>
+            <Nav.Link
+              eventKey={2}
+              as={Link}
+              to={`${ROUTES?.RADIOS.paths[langCode]}`}
+            >
               <FormattedMessage id="Radios" defaultMessage="Radios" />
             </Nav.Link>
-            <Nav.Link as={Link} to={`${ROUTES?.TVS.paths[langCode]}`}>
+            <Nav.Link
+              eventKey={3}
+              as={Link}
+              to={`${ROUTES?.TVS.paths[langCode]}`}
+            >
               <FormattedMessage id="TVs" defaultMessage="TVs" />
             </Nav.Link>
           </Nav>
