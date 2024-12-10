@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/eitbapi-react/static/css/main.7b161d46.css",
+    "main.js": "/eitbapi-react/static/js/main.1b08a276.js",
+    "static/js/787.97c0b427.chunk.js": "/eitbapi-react/static/js/787.97c0b427.chunk.js",
+    "static/media/slick.svg": "/eitbapi-react/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/eitbapi-react/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/eitbapi-react/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/eitbapi-react/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/eitbapi-react/index.html",
+    "main.7b161d46.css.map": "/eitbapi-react/static/css/main.7b161d46.css.map",
+    "main.1b08a276.js.map": "/eitbapi-react/static/js/main.1b08a276.js.map",
+    "787.97c0b427.chunk.js.map": "/eitbapi-react/static/js/787.97c0b427.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b161d46.css",
+    "static/js/main.1b08a276.js"
+  ]
+}
